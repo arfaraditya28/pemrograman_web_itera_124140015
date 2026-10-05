@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mini POS — aplikasi kasir kantin kampus: tambah barang, hitung diskon otomatis, kembalian, dan simpan keranjang di localStorage." />
+  <title>Mini POS — Kasir Kantin Kampus</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">🧾</span>
+        <div>
+          <h1>Mini POS</h1>
+          <p>Kasir Kantin</p>
+        </div>
+      </div>
+      <nav aria-label="Aksi transaksi">
+        <button id="resetBtn" type="button" class="btn btn-danger-outline">Transaksi Baru</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <!-- Form Tambah Barang -->
+    <section class="card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Tambah Barang</h2>
+      <p class="muted">Isi nama, harga satuan, dan jumlah barang.</p>
+
+      <form id="itemForm" novalidate>
+        <fieldset>
+          <legend class="sr-only">Data barang baru</legend>
+          <div class="field">
+            <label for="itemName">Nama Barang</label>
+            <input type="text" id="itemName" placeholder="cth: Nasi Goreng" autocomplete="off" aria-describedby="nameError" />
+            <small class="error" id="nameError" role="alert" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="itemPrice">Harga Satuan (Rp)</label>
+            <input type="number" id="itemPrice" placeholder="cth: 10000" min="0" step="1" inputmode="numeric" aria-describedby="priceError" />
+            <small class="error" id="priceError" role="alert" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="itemQty">Jumlah / Qty</label>
+            <input type="number" id="itemQty" placeholder="cth: 2" min="1" step="1" inputmode="numeric" aria-describedby="qtyError" />
+            <small class="error" id="qtyError" role="alert" aria-live="polite"></small>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary btn-block">Tambah Barang</button>
+      </form>
+
+      <aside class="info-box" aria-label="Informasi diskon">
+        <strong>Info diskon:</strong> belanja <strong>≥ Rp50.000</strong> otomatis dapat
+        <strong>diskon 10%</strong>.
+      </aside>
+    </section>
+
+    <!-- Keranjang -->
+    <section class="card" aria-labelledby="cartTitle">
+      <h2 id="cartTitle">Keranjang Belanja</h2>
+      <p class="muted" id="cartCount" aria-live="polite">0 item</p>
+
+      <figure class="table-wrapper">
+        <table>
+          <caption class="sr-only">Daftar barang di keranjang belanja beserta subtotalnya</caption>
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Nama Barang</th>
+              <th scope="col">Harga Satuan</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="cartBody">
+            <!-- diisi oleh script.js -->
+          </tbody>
+        </table>
+        <figcaption class="empty-note" id="emptyNote">Keranjang masih kosong. Tambahkan barang dulu ya.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Ringkasan -->
+    <section class="card" aria-labelledby="summaryTitle">
+      <h2 id="summaryTitle">Ringkasan Pembayaran</h2>
+
+      <dl class="summary">
+        <div class="summary-row">
+          <dt>Total Belanja</dt>
+          <dd id="totalBelanja">Rp0</dd>
+        </div>
+        <div class="summary-row">
+          <dt>Diskon <span class="badge" id="discountBadge">0%</span></dt>
+          <dd id="discount">Rp0</dd>
+        </div>
+        <div class="summary-row grand">
+          <dt>Total Akhir</dt>
+          <dd id="grandTotal">Rp0</dd>
+        </div>
+      </dl>
+
+      <form id="paymentForm" novalidate>
+        <div class="field">
+          <label for="cashPaid">Uang Bayar (Rp)</label>
+          <input type="number" id="cashPaid" placeholder="cth: 60000" min="0" step="1" inputmode="numeric" aria-describedby="cashError" />
+          <small class="error" id="cashError" role="alert" aria-live="polite"></small>
+        </div>
+      </form>
+
+      <output class="change-box" id="changeBox" aria-live="polite">
+        <span>Kembalian</span>
+        <strong id="changeValue">Rp0</strong>
+        <small id="changeMessage" class="muted"></small>
+      </output>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Mini POS &bull; Praktikum Pertemuan 1 — JavaScript Dasar &bull; Data tersimpan otomatis di localStorage</p>
+      <address class="muted">Dibuat oleh Muhammad Arfa Raditya (124140015) untuk praktikum Pengembangan Aplikasi Web.</address>
+    </div>
+  </footer>
+  <noscript>
+    <p style="text-align:center;padding:1rem">Aplikasi Mini POS membutuhkan JavaScript. Aktifkan JavaScript di browser Anda.</p>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>

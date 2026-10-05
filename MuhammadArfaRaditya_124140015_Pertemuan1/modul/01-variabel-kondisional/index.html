@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Modul 01 — Variabel dan Kondisional: data diri, kelulusan, kategori umur, konversi hari, grade." />
+  <title>Modul 01 — Variabel &amp; Kondisional</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="../../index.html">Mini POS</a> / modul / 01-variabel-kondisional</p>
+      <h1>Modul 01 — Variabel &amp; Kondisional</h1>
+      <p class="muted">Latihan JavaScript dasar: const/let, if-else, switch-case, ternary.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="t1">
+      <h2 id="t1">1. Data Diri</h2>
+      <p class="muted">Menyimpan nama, umur, dan kota asal dengan <code>const</code> dan <code>let</code>.</p>
+      <output class="result" id="biodataOut" aria-live="polite"></output>
+    </section>
+
+    <section class="card" aria-labelledby="t2">
+      <h2 id="t2">2. Pengecekan Kelulusan</h2>
+      <p class="muted">Nilai &ge; 70 &rarr; Lulus, selain itu Tidak Lulus.</p>
+      <form id="lulusForm" novalidate>
+        <div class="field">
+          <label for="nilaiLulus">Nilai (0–100)</label>
+          <input type="number" id="nilaiLulus" min="0" max="100" step="1" value="75" />
+          <small class="error" id="nilaiLulusError" role="alert"></small>
+        </div>
+        <button type="submit" class="btn">Cek Kelulusan</button>
+      </form>
+      <output class="result" id="lulusOut" aria-live="polite"></output>
+    </section>
+
+    <section class="card" aria-labelledby="t3">
+      <h2 id="t3">3. Kategori Umur</h2>
+      <p class="muted">anak &lt; 12 &bull; remaja 12–17 &bull; dewasa 18–59 &bull; lansia &ge; 60</p>
+      <form id="umurForm" novalidate>
+        <div class="field">
+          <label for="umurInput">Umur</label>
+          <input type="number" id="umurInput" min="0" max="150" step="1" value="20" />
+          <small class="error" id="umurInputError" role="alert"></small>
+        </div>
+        <button type="submit" class="btn">Cek Kategori</button>
+      </form>
+      <output class="result" id="umurOut" aria-live="polite"></output>
+    </section>
+
+    <section class="card" aria-labelledby="t4">
+      <h2 id="t4">4. Konversi Hari (switch-case)</h2>
+      <p class="muted">Angka 1–7 menjadi nama hari dalam bahasa Inggris.</p>
+      <form id="hariForm" novalidate>
+        <div class="field">
+          <label for="hariInput">Angka hari (1–7)</label>
+          <input type="number" id="hariInput" min="1" max="7" step="1" value="1" />
+          <small class="error" id="hariInputError" role="alert"></small>
+        </div>
+        <button type="submit" class="btn">Konversi</button>
+      </form>
+      <output class="result" id="hariOut" aria-live="polite"></output>
+    </section>
+
+    <section class="card" aria-labelledby="t5">
+      <h2 id="t5">5. Kalkulator Grade (ternary)</h2>
+      <p class="muted">A &ge; 85 &bull; B &ge; 70 &bull; C &ge; 55 &bull; D &ge; 40 &bull; selain itu E.</p>
+      <form id="gradeForm" novalidate>
+        <div class="field">
+          <label for="gradeInput">Nilai (0–100)</label>
+          <input type="number" id="gradeInput" min="0" max="100" step="1" value="82" />
+          <small class="error" id="gradeInputError" role="alert"></small>
+        </div>
+        <button type="submit" class="btn">Hitung Grade</button>
+      </form>
+      <output class="result" id="gradeOut" aria-live="polite"></output>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="row nav-between" aria-label="Navigasi modul">
+        <a href="../04-dom-api/index.html">&larr; Modul 04: DOM &amp; API</a>
+        <a href="../02-loop-fungsi/index.html">Modul 02: Loop &amp; Fungsi &rarr;</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

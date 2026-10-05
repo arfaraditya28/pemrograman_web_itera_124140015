@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Modul 03 — Array dan Objek: tabel mahasiswa, nilai tertinggi, rata-rata, sorting, CRUD." />
+  <title>Modul 03 — Array &amp; Objek</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="../../index.html">Mini POS</a> / modul / 03-array-objek</p>
+      <h1>Modul 03 — Array &amp; Objek</h1>
+      <p class="muted">Array of object, method array (map/filter/reduce/sort), dan CRUD dengan event handler.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="t1">
+      <h2 id="t1">1. Data Mahasiswa</h2>
+      <p class="muted">Array minimal 5 objek: nama, NIM, jurusan, nilai.</p>
+      <div class="table-wrapper">
+        <table>
+          <caption class="muted">Tabel data mahasiswa</caption>
+          <thead>
+            <tr><th scope="col">No</th><th scope="col">Nama</th><th scope="col">NIM</th><th scope="col">Jurusan</th><th scope="col">Nilai</th></tr>
+          </thead>
+          <tbody id="tabelMahasiswa"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="t2">
+      <h2 id="t2">2. Nilai Tertinggi</h2>
+      <button type="button" class="btn" id="topBtn">Cari Nilai Tertinggi</button>
+      <output class="result" id="topOut" aria-live="polite"></output>
+    </section>
+
+    <section class="card" aria-labelledby="t3">
+      <h2 id="t3">3. Nilai di Atas Rata-rata</h2>
+      <button type="button" class="btn" id="avgBtn">Hitung Rata-rata &amp; Filter</button>
+      <output class="result" id="avgOut" aria-live="polite"></output>
+    </section>
+
+    <section class="card" aria-labelledby="t4">
+      <h2 id="t4">4. Sorting Nama</h2>
+      <div class="row">
+        <button type="button" class="btn btn-secondary" id="sortAscBtn">Ascending (A–Z)</button>
+        <button type="button" class="btn btn-secondary" id="sortDescBtn">Descending (Z–A)</button>
+      </div>
+      <output class="result" id="sortOut" aria-live="polite"></output>
+    </section>
+
+    <section class="card" aria-labelledby="t5">
+      <h2 id="t5">5. CRUD Data Mahasiswa</h2>
+      <form id="crudForm" novalidate>
+        <div class="field">
+          <label for="crudNama">Nama</label>
+          <input type="text" id="crudNama" placeholder="cth: Muhammad Arfa Raditya" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="crudNim">NIM</label>
+          <input type="text" id="crudNim" placeholder="cth: 124140015" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="crudJurusan">Jurusan</label>
+          <input type="text" id="crudJurusan" placeholder="cth: Teknik Informatika" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="crudNilai">Nilai (0–100)</label>
+          <input type="number" id="crudNilai" min="0" max="100" step="1" />
+        </div>
+        <small class="error" id="crudError" role="alert"></small>
+        <div class="row">
+          <button type="submit" class="btn" id="crudSubmit">Tambah Mahasiswa</button>
+          <button type="button" class="btn btn-secondary" id="crudCancel" hidden>Batal Edit</button>
+        </div>
+      </form>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th scope="col">No</th><th scope="col">Nama</th><th scope="col">NIM</th><th scope="col">Jurusan</th><th scope="col">Nilai</th><th scope="col">Aksi</th></tr>
+          </thead>
+          <tbody id="crudBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="row nav-between" aria-label="Navigasi modul">
+        <a href="../02-loop-fungsi/index.html">&larr; Modul 02: Loop &amp; Fungsi</a>
+        <a href="../04-dom-api/index.html">Modul 04: DOM &amp; API &rarr;</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
