@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Dashboard</title>
+  <meta name="description" content="Personal Dashboard Muhammad Arfa Raditya (124140015): cuaca real-time Open-Meteo & manajemen tugas kuliah." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div>
+          <h1>Muhammad Arfa Raditya</h1>
+          <p>124140015 &middot; RB</p>
+        </div>
+      </div>
+      <div class="clock-card">
+        <div class="clock-date" id="currentDate">Memuat tanggal…</div>
+        <div class="clock-time" id="currentTime">--:--:--</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- CUACA -->
+    <section class="card">
+      <div class="weather-head">
+        <div>
+          <h2>Cuaca Terkini</h2>
+        </div>
+        <div class="weather-actions">
+          <span class="update-badge" id="weatherUpdated">Belum diperbarui</span>
+          <button class="btn btn-secondary btn-sm" id="refreshWeatherBtn" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <div class="weather-state" id="weatherLoading">
+        <div class="spinner"></div>
+        <p>Mengambil data cuaca dari Open-Meteo…</p>
+      </div>
+
+      <div class="weather-state hidden" id="weatherError">
+        <p id="weatherErrorMsg">Gagal memuat data cuaca.</p>
+        <button class="btn btn-primary btn-sm" id="retryWeatherBtn" type="button">Coba Lagi</button>
+      </div>
+
+      <div class="weather-body hidden" id="weatherContent">
+        <div class="weather-main">
+          <div>
+            <div class="weather-temp"><span id="weatherTemp">--</span><sup>°</sup><span class="temp-c">C</span></div>
+            <div class="weather-desc" id="weatherDesc">--</div>
+          </div>
+          <div class="weather-side">
+            <strong>ITERA, Lampung Selatan</strong>
+          </div>
+        </div>
+        <div class="weather-grid">
+          <div class="weather-item"><span class="w-label">Dirasakan</span><strong id="weatherFeels">--</strong></div>
+          <div class="weather-item"><span class="w-label">Kelembapan</span><strong id="weatherHumidity">--</strong></div>
+          <div class="weather-item"><span class="w-label">Angin</span><strong id="weatherWind">--</strong></div>
+          <div class="weather-item"><span class="w-label">Presipitasi</span><strong id="weatherPrecip">--</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTIK -->
+    <section class="stats-grid">
+      <div class="card stat">
+        <div><strong id="statTotal">0</strong><p>Total Tugas</p></div>
+      </div>
+      <div class="card stat">
+        <div><strong id="statDone">0</strong><p>Selesai</p></div>
+      </div>
+      <div class="card stat">
+        <div><strong id="statActive">0</strong><p>Belum Selesai</p></div>
+      </div>
+    </section>
+
+    <div class="layout-2col">
+      <!-- FORM -->
+      <section class="card">
+        <h2 id="formTitle">Tambah Tugas</h2>
+        <p class="muted">Isi detail tugas.</p>
+        <form id="taskForm" novalidate>
+          <div class="form-group">
+            <label for="taskTitle">Judul Tugas *</label>
+            <input type="text" id="taskTitle" placeholder="cth: Tugas 1 Jaringan Komputer" maxlength="100" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="taskCourse">Mata Kuliah *</label>
+              <input type="text" id="taskCourse" placeholder="cth: Jarkom" maxlength="60" required />
+            </div>
+            <div class="form-group">
+              <label for="taskDeadline">Deadline *</label>
+              <input type="date" id="taskDeadline" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="taskDesc">Deskripsi</label>
+            <textarea id="taskDesc" rows="3" placeholder="Catatan singkat tugas…" maxlength="500"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="taskPriority">Prioritas</label>
+            <select id="taskPriority">
+              <option value="rendah">Rendah</option>
+              <option value="sedang" selected>Sedang</option>
+              <option value="tinggi">Tinggi</option>
+            </select>
+          </div>
+          <p class="form-error hidden" id="formError"></p>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Simpan Tugas</button>
+            <button type="button" class="btn btn-ghost hidden" id="cancelEditBtn">Batal</button>
+          </div>
+        </form>
+        <div class="toast hidden" id="toast" role="status"></div>
+      </section>
+
+      <!-- DAFTAR TUGAS -->
+      <section class="card">
+        <div class="list-head">
+          <h2>Daftar Tugas</h2>
+          <div class="filters" role="tablist">
+            <button class="chip active" data-filter="all" type="button">Semua</button>
+            <button class="chip" data-filter="active" type="button">Aktif</button>
+            <button class="chip" data-filter="done" type="button">Selesai</button>
+          </div>
+        </div>
+        <div class="list-toolbar">
+          <label for="taskSort">Urutkan:</label>
+          <select id="taskSort">
+            <option value="deadline">Tenggat terdekat</option>
+            <option value="priority">Prioritas tertinggi</option>
+            <option value="newest">Terbaru</option>
+          </select>
+        </div>
+        <div id="taskList" class="task-list"></div>
+        <div class="empty-state" id="emptyState">
+          <h3>Belum ada tugas</h3>
+          <p>Tambahkan tugas kuliah pertamamu lewat form di samping.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Muhammad Arfa Raditya</p>
+    </footer>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
