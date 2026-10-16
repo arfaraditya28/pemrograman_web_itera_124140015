@@ -26,7 +26,7 @@
   https://api.open-meteo.com/v1/forecast?latitude=-5.36&longitude=105.31&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&timezone=Asia%2FJakarta
   ```
 
-  Lokasi default: ITERA, Lampung Selatan (-5.36, 105.31), zona waktu Asia/Jakarta. Atribusi Open-Meteo tercantum di footer dan widget cuaca.
+  Lokasi default: ITERA, Lampung Selatan (-5.36, 105.31), zona waktu Asia/Jakarta.
 
 ## Cara Menjalankan
 
