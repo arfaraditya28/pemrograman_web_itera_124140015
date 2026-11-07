@@ -1,0 +1,17 @@
+# Byte-compiled / cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Pengaturan editor
+.vscode/
+.idea/
+
+# Berkas sistem operasi
+.DS_Store
+Thumbs.db
