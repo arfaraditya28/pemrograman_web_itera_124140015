@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+env/
+env*/
+
+# Python cache dan bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database lokal
+*.sqlite
+*.sqlite3
+
+# Hasil testing dan coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Konfigurasi rahasia lokal
+.env
+
+# Build dan packaging
+build/
+dist/
+*.egg
+*.egg-info/
+.tox/
+
+# Berkas editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
