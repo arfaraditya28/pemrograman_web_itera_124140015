@@ -1,17 +1,10 @@
-# Praktikum PAW Pertemuan 6
+# RESTful API Manajemen Mahasiswa dan Matakuliah - Tugas Praktikum 6
 
-## RESTful API Manajemen Mahasiswa dan Matakuliah
+## Identitas
 
-| Keterangan | Data |
-| --- | --- |
-| Nama Lengkap | Muhammad Arfa Raditya |
-| NIM | 124140015 |
-| Kelas Praktikum | RB |
-| Mata Kuliah | Pengembangan Aplikasi Web (PAW) |
-| Pertemuan | 6 |
-| Judul Praktikum | Pyramid Framework - RESTful API Manajemen Mahasiswa dan Matakuliah |
-
----
+- **Nama:** Muhammad Arfa Raditya
+- **NIM:** 124140015
+- **Kelas:** RB
 
 ## 1. Deskripsi Proyek
 
@@ -69,30 +62,6 @@ MuhammadArfaRaditya_124140015_Pertemuan6/
 ├── CHANGES.txt
 ├── .coveragerc
 ├── screenshots/
-│   ├── curl_mahasiswa_get_all.png
-│   ├── curl_mahasiswa_get_detail.png
-│   ├── curl_mahasiswa_post.png
-│   ├── curl_mahasiswa_post_validation.png
-│   ├── curl_mahasiswa_post_duplicate.png
-│   ├── curl_mahasiswa_put.png
-│   ├── curl_mahasiswa_delete_and_get.png
-│   ├── curl_mahasiswa_not_found.png
-│   ├── curl_matakuliah_get_all.png
-│   ├── curl_matakuliah_get_detail.png
-│   ├── curl_matakuliah_post.png
-│   ├── curl_matakuliah_post_validation.png
-│   ├── curl_matakuliah_post_duplicate.png
-│   ├── curl_matakuliah_post_sks_invalid.png
-│   ├── curl_matakuliah_post_semester_invalid.png
-│   ├── curl_matakuliah_put.png
-│   ├── curl_matakuliah_put_not_found.png
-│   ├── curl_matakuliah_delete_and_get.png
-│   ├── curl_matakuliah_not_found.png
-│   ├── terminal_alembic.png
-│   ├── terminal_seeding.png
-│   ├── terminal_pytest.png
-│   ├── terminal_api_test.png
-│   └── terminal_psql.png
 └── pyramid_mahasiswa/
     ├── __init__.py
     ├── routes.py
